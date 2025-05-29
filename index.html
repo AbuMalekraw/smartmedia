@@ -1,1 +1,81 @@
-<!DOCTYPE html><html><body>Setup</body></html>
+<!DOCTYPE html><html><body><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>عيد أضحى مبارك</title>
+  <style>
+    body {
+      background-color: #0F4F4F;
+      color: white;
+      font-family: 'Cairo', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    canvas {
+      margin-top: 20px;
+      max-width: 100%;
+      border: 2px solid #fff;
+    }
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      font-family: 'Cairo', sans-serif;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #fff;
+      color: #0F4F4F;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <h1>عيد أضحى مبارك</h1>
+  <p>أدخل اسمك ليظهر على بطاقة التهنئة</p>
+
+  <input type="text" id="userName" placeholder="اكتب اسمك هنا" />
+  <br/>
+  <button onclick="generateImage()">توليد البطاقة</button>
+  <br/><br/>
+  <canvas id="greetingCanvas" width="768" height="960"></canvas>
+  <br/>
+  <a id="downloadLink" style="display:none;" download="eid_greeting.png">
+    <button>تحميل البطاقة</button>
+  </a>
+
+  <script>
+    const canvas = document.getElementById("greetingCanvas");
+    const ctx = canvas.getContext("2d");
+    const image = new Image();
+    image.src = "44.png"; // Must match your image filename
+
+    image.onload = () => {
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    };
+
+    function generateImage() {
+      const name = document.getElementById("userName").value.trim();
+      if (!name) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+      ctx.font = "36px 'Cairo'";
+      ctx.fillStyle = "#FFFFFF";
+      ctx.textAlign = "center";
+      ctx.fillText(name, canvas.width / 2, 870); // Adjust Y-position as needed
+
+      const link = document.getElementById("downloadLink");
+      link.href = canvas.toDataURL("image/png");
+      link.style.display = "inline-block";
+    }
+  </script>
+</body>
+</html>
+</body></html>
