@@ -4,10 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>عيد أضحى مبارك</title>
+
+  <!-- ✅ Correct font import link -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      background-color: #353535;
-      color: white;
+      background-color: #FFFFFF; /* white background */
+      color: #0F4F4F;
       font-family: 'IBM Plex Sans Arabic', sans-serif;
       text-align: center;
       padding: 40px;
@@ -15,12 +19,12 @@
     canvas {
       margin-top: 20px;
       max-width: 100%;
-      border: 2px solid #fff;
+      border: 2px solid #FFBF00;
     }
     input {
       padding: 10px;
       font-size: 1rem;
-      font-family: 'Cairo', sans-serif;
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
     }
     button {
       padding: 10px 20px;
@@ -32,7 +36,6 @@
       font-weight: bold;
     }
   </style>
-  <link href="<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -66,10 +69,11 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
+      // ✅ Use bold IBM Plex Sans Arabic
       ctx.font = "bold 40px 'IBM Plex Sans Arabic'";
       ctx.fillStyle = "#FFFFFF";
       ctx.textAlign = "center";
-      ctx.fillText(name, canvas.width / 2, 600);
+      ctx.fillText(name, canvas.width / 2, 600); // Adjust Y position if needed
 
       const link = document.getElementById("downloadLink");
       link.href = canvas.toDataURL("image/png");
