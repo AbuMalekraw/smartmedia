@@ -66,10 +66,10 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-      ctx.font = "36px 'Cairo'";
+      ctx.font = "40px 'Cairo'";
       ctx.fillStyle = "#FFFFFF";
       ctx.textAlign = "center";
-      ctx.fillText(name, canvas.width / 2, 870);
+      ctx.fillText(name, canvas.width / 2, 565);
 
       const link = document.getElementById("downloadLink");
       link.href = canvas.toDataURL("image/png");
